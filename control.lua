@@ -4,24 +4,23 @@ require "World2_large"
 -- This mod was created by TheOdder
 -- 'nauvis' check was created by ptx0
 
-settings_global = settings.global -- cached for performance
-local use_large_map = settings_global["use-large-map"].value
-local scale = settings_global["map-gen-scale"].value
+local use_large_map = settings.global["use-large-map"].value
+local scale = settings.global["map-gen-scale"].value
 local spawn = {
-    x = scale * settings_global["spawn-x"].value * (use_large_map and 2 or 1),
-    y = scale * settings_global["spawn-y"].value * (use_large_map and 2 or 1)
+    x = scale * settings.global["spawn-x"].value * (use_large_map and 2 or 1),
+    y = scale * settings.global["spawn-y"].value * (use_large_map and 2 or 1)
 }
 
 script.on_event(defines.events.on_runtime_mod_setting_changed, function(event)
     if not event then 
       return 
     end
-    
+
     --Should prevent user from changing the settings, but will still get through if he changes it and restarts factorio :(
-    if event.setting == "use-large-map" then settings_global["use-large-map"].value = use_large_map end
-    if event.setting == "map-gen-scale" then settings_global["map-gen-scale"].value = scale end
-    if event.setting == "spawn-x" then settings_global["spawn-x"].value = spawn.x end
-    if event.setting == "spawn-y" then settings_global["spawn-y"].value = spawn.y end
+    if event.setting == "use-large-map" then settings.global["use-large-map"].value = use_large_map end
+    if event.setting == "map-gen-scale" then settings.global["map-gen-scale"].value = scale end
+    if event.setting == "spawn-x" then settings.global["spawn-x"].value = spawn.x end
+    if event.setting == "spawn-y" then settings.global["spawn-y"].value = spawn.y end
 
     game.print("You shouldn't change the world-gen settings after you started a savegame. This will break the generating for new parts of the map.")
     game.print("I haven't found a good way to prevent you changing them yet, so for now they are just ignored, but will take effect when restarting.")
