@@ -22,11 +22,17 @@ To change the scale of the map change the variable `scale` in `control.lua`.
 
 ## Versions
 
+v0.18.2
+
+* Fixed serialization bug
+
 v0.18.1
+
 * Added check for surface to be `nauvis` to help with compatibility with Space Exploration and similar mods.
 * This change was made & tested by ptx0 - many thanks!
 
 v0.18.0
+
 * Convert to Factorio v0.18
 
 ## Generating your own maps
