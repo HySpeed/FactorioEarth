@@ -22,6 +22,10 @@ To change the scale of the map change the variable `scale` in `control.lua`.
 
 ## Versions
 
+v0.20.0
+
+* Updated to Factorio 1.1
+
 v0.18.2
 
 * Fixed serialization bug
